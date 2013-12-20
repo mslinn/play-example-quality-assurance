@@ -1,11 +1,12 @@
 import sbt._
 import sbt.Keys._
 import play.Project._
-import java.nio.charset.StandardCharsets.UTF_8
+import java.nio.charset.Charset
 
 // Adapted from: https://github.com/yesnault/Play20StartApp
-// With enhancements by Mike Slinn: https://github.com/mslinn
 object ApiDocSettings {
+  val UTF_8 = Charset.forName("UTF-8")
+
   def childPathFinder(dir: String, filetype: String): PathFinder = file(dir) ** ("*." + filetype)
 
   def childFiles(dir: String, filetype: String): Seq[File] = childPathFinder(dir, filetype).get
@@ -57,10 +58,3 @@ object ApiDocSettings {
     println("API documentation in " + apiDir)
   }
 }
-
-
-      
-      
-      
-
-      
